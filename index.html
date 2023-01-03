@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <link>
+        <title>InterviewReady</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+            <!-- Show the menu buttons -->
+            <button class="btn" id="btn-java">JAVA</button>
+            <button class="btn" id="btn-soft-skills">Soft Skills</button>
+            <button class="btn" id="btn-mixed">Mixed</button>
+        </div>
+
+        <div class="modal-overlay" id="modal-overlay">
+            <!-- Show the popup modal which will promp user -->
+            <div class="modal-num-questions" id="modal-num-questions">
+                <br />
+                <button class="btn-close" id="btn-close-modal">X</button>
+                <form id="form" onsubmit="return checkForm(event)">
+                    <i><h3 id="category"></h3></i>
+                    <label for="num-questions">How many do you want to go over?</label
+                    >
+                    <label id="label-num-questions"></label
+                    >
+                    <input
+                        type="text"
+                        id="num-questions"
+                        pattern="[1-9][0-9]*"
+                        required
+                    /><br />
+                    <button class="btn" type="submit" id="btn-ok">OK</button>
+                </form>
+            </div>
+
+            <!-- This will display the questions -->
+            <div class="question-card" id="question-card" style="display: none">
+                <div class="question-title-answer">
+                    <button class="btn-close" id="btn-close">X</button>
+                    <h2 id="question-title"></h2>
+                    <p id="answer-field"></p>
+                </div>
+                <div class="question-card-bottom">
+                    <button class="btn" id="show-answer">Show answer</button>
+                    <div class="prev-next-container">
+                        <button class="btn" id="btn-prev">Previous</button>
+                        <button class="btn" id="btn-next">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="javascript/main.js"></script>
+        <script src="javascript/answers.js"></script>
+        <script src="javascript/questions.js"></script>
+    </body>
+</html>

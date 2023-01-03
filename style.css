@@ -1,0 +1,188 @@
+body {
+    background-color: #91e8f5;
+}
+
+/* Style the container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Style the question number modal */
+.modal-num-questions {
+    display: none; /* Hide the modal by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 50%; /* Center horizontally */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%); /* Offset from center */
+    width: 400px; /* Set a fixed width */
+    height: 300px; /* Set a fixed height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #91e8f5; /* Fallback color */
+    background-color: rgba(255, 255, 255, 0.8); /* White w/ opacity */
+    padding: 20px;
+    border-radius: 10px; /* Add rounded corners */
+}
+
+/* Style the modal form */
+.modal-num-questions form {
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+/* Style the modal label and input */
+.modal-num-questions label,
+.modal-num-questions input {
+    margin: 10px 0; /* Add some space between elements */
+    font-size: 18px;
+}
+
+/* Style the modal button */
+
+/* Style the "OK" button hover state */
+/* .modal button:hover {
+    background-color: rgb(83, 217, 83);
+} */
+
+.modal-overlay {
+    display: none; /* Hide the overlay by default */
+    position: fixed; /* Stay in place */
+    z-index: 0; /* Sit behind the modal */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #91e8f5; /* Black w/ opacity */
+}
+
+/* Style the question card */
+#question-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    max-height: 75%;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style the close button */
+.btn-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    border-radius: 35%;
+    background-color: #f44336;
+    color: white;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Style the question title and answer container */
+.question-title-answer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Style the question title */
+#question-title {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Style the answer container */
+#answer-field {
+    max-height: 60vh;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    font-size: 22px;
+}
+
+/* Style the bottom section of the question card */
+.question-card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Style the previous and next buttons */
+.prev-next-container {
+    display: flex;
+}
+
+.btn {
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: #2196f3;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn:hover {
+    background-color: #1976d2;
+}
+
+.btn:active {
+    transform: scale(0.9);
+}
+
+.btn.disabled {
+    pointer-events: none;
+    background-color: #ccc;
+}
+
+@media (max-width: 600px) {
+    #question-card {
+        width: 80%;
+    }
+
+    #question-title {
+        font-size: 18px;
+    }
+
+    #answer-field {
+        font-size: 18px;
+    }
+
+    .show-answer {
+        width: 120px;
+        height: 40px;
+    }
+
+    .prev-next-container .btn {
+        width: 120px;
+        height: 40px;
+    }
+}
+
+@media (max-height: 500px) {
+    #answer-field {
+        max-height: 50vh;
+    }
+}

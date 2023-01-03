@@ -1,0 +1,13 @@
+{
+    "name": "interview-practice",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "index.js",
+    "keywords": [],
+    "author": "Alexandru Boncut",
+    "license": "ISC",
+    "description": "Practice java and soft skills interview questions.",
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}
