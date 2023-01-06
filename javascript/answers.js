@@ -1587,15 +1587,13 @@ const answers_soft_skills = {
             • component of the entire system Sanity Testing is like specialized health check up
         `,
     "What is Regression Testing?": `
-            • A small change in one part of the system does not break existing functionality elsewhere in the system
+            • Regression testing is a type of testing that is done to verify that a change or modification to a software application has not adversely affected its existing functionality. 
             • When adding a new payment type to a shopping website, re-run old tests to ensure that the new code hasn't created new defects or re-introduced old ones.
         `,
     "When to apply Regression Testing?": `
-            • When new functionalities are added
-            • In case of change requirements
-            • When there is a defect fix
-            • When there are performance issues
-            • In case of environmental changes
+            • At the end of each sprint cycle
+            • Before a release
+            • Whenever a codebase has been modified or altered in any way
         `,
     "What is System Testing?": `
             • Post Integration and After Acceptance testing
