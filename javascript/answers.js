@@ -1569,7 +1569,7 @@ const answers_soft_skills = {
             • Whenever there is a new build, the QA team determines the major functionality in the application to perform smoke testing
         `,
     "What is Sanity Testing?": `
-            • Sanity Testing is a type of software testing which is usually performed on a stable build to ascertain that bug has been resolved and there are no new defects introduced due to changes in the code, or functionality of the software product
+            • Sanity testing checks the basic functionality of a software application after making a small change or fixing a bug. It doesn’t require documentation and is used to verify that the changes have not caused unintended consequences or broken any existing functionality.
         `,
     "The difference between Smoke and Sanity Testing?": `
         <b>• Smoke testing:</b>
