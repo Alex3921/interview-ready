@@ -1596,8 +1596,7 @@ const answers_soft_skills = {
             • Whenever a codebase has been modified or altered in any way
         `,
     "What is System Testing, what are the advantages of System Testing, and when do you perform it?": `
-            System testing is a type of testing that is done to evaluate the end-to-end functionality of a software application. It is used to verify that the software works as expected when all its components are connected and working together.
-            • Functional and non-functional testing
+            • System testing evaluates the software application as one whole unit through both functional and non-functional tests.
             • Non-functional tests are performed to ensure if the developed product meets the business expectation.
                 • Response time of an application
                 • Performance
