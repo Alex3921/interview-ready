@@ -1595,16 +1595,24 @@ const answers_soft_skills = {
             • Before a release
             • Whenever a codebase has been modified or altered in any way
         `,
-    "What is System Testing?": `
-            • Post Integration and After Acceptance testing
-            • Testing joined components as one system
-            • Detects the defects within the inter-components
+    "What is System Testing, what are the advantages of System Testing, and when do you perform it?": `
+            System testing is a type of testing that is done to evaluate the end-to-end functionality of a software application. It is used to verify that the software works as expected when all its components are connected and working together.
             • Functional and non-functional testing
             • Non-functional tests are performed to ensure if the developed product meets the business expectation.
                 • Response time of an application
                 • Performance
                 • Security
                 • Load capability
+
+            <b>Advantages of system testing:</b>
+                • Ensures that the software is working as expected when all its components are connected and interacting with each other
+                • Helps to identify and fix problems that may not have been discovered in earlier stages of testing
+                • Increases confidence in the software's overall functionality and performance
+
+            <b>When to perform system testing:</b>
+                • Near the end of the development process, after all the individual components of the software have been tested
+                • Before releasing the software to production
+                • When making significant changes or updates to the software that may affect its overall functionality
         `,
     "What is Interface Testing?": `
             • Verifies whether the communication between two different software systems is done correctly
