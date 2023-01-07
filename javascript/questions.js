@@ -171,7 +171,7 @@ const questions_soft_skills = [
     "The difference between Smoke and Sanity Testing?",
     "What is Regression Testing?",
     "When to apply Regression Testing?",
-    "What is System Testing?",
+    "What is System Testing, what are the advantages of System Testing, and when do you perform it?",
     "What is Interface Testing?",
     "How to do Interface Testing?",
     "What is End-to-End (E2E) Testing?",
