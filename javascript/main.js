@@ -1,49 +1,72 @@
-// Both 'questions' and 'answers' are assigned after category selection
-// Store question bank
-let questions;
-// Store answer bank
-let answers;
+import Java from "./topics/java.js";
+import Cucumber from "./topics/cucumber.js";
+import SoftSkills from "./topics/soft_skills.js";
+import JUnitTestNG from "./topics/junit_testng.js";
+import Maven from "./topics/maven.js";
+import Selenium from "./topics/selenium.js";
+import Scenario from "./topics/scenario.js";
+
+let selectedTopic;
 
 // Get menu buttons
-const btnJava = document.getElementById("btn-java");
-const btnSoftSkills = document.getElementById("btn-soft-skills");
-const btnMixed = document.getElementById("btn-mixed");
+const btnTopicList = document.getElementsByClassName("btn-topic");
 const btnCloseModal = document.getElementById("btn-close-modal");
+const btnConfirmNumQuestions = document.getElementById("btn-ok");
 
 // Get the question number modal and modal overlay elements
 const modalNumQuestions = document.getElementById("modal-num-questions");
 const modalOverlay = document.getElementById("modal-overlay");
 
 // Handle menu button click events
-btnJava.addEventListener("click", handleCategoryChoice);
-btnSoftSkills.addEventListener("click", handleCategoryChoice);
-btnMixed.addEventListener("click", handleCategoryChoice);
 btnCloseModal.addEventListener("click", hideModalNumQuestions);
+btnConfirmNumQuestions.addEventListener("click", checkForm);
 
-// This handles category choice and retrieves the correct data
-function handleCategoryChoice(e) {
-    const category = e.target.innerHTML;
-    if (category === "JAVA") {
-        questions = questions_java;
-        answers = answers_java;
-    } else if (category === "Soft Skills") {
-        questions = questions_soft_skills;
-        answers = answers_soft_skills;
-    } else {
-        questions = questions_java.concat(questions_soft_skills);
-        answers = { ...answers_java, ...answers_soft_skills };
+function addEventListenerToBtnTopic() {
+    for (let btn of btnTopicList) {
+        btn.addEventListener("click", handleTopicChoice);
     }
-    showModalNumQuestions(category);
+}
+addEventListenerToBtnTopic();
+
+// This handles topic choice and retrieves the correct data
+function handleTopicChoice(e) {
+    const topic = e.target.innerHTML;
+
+    switch (topic) {
+        case "JAVA":
+            selectedTopic = new Java();
+            break;
+        case "Soft Skills":
+            selectedTopic = new SoftSkills();
+            break;
+        case "Cucumber":
+            selectedTopic = new Cucumber();
+            break;
+        case "JUnit - TestNG":
+            selectedTopic = new JUnitTestNG();
+            break;
+        case "Maven":
+            selectedTopic = new Maven();
+            break;
+        case "Selenium":
+            selectedTopic = new Selenium();
+            break;
+        case "Scenario":
+            selectedTopic = new Scenario();
+            break;
+    }
+    console.log(selectedTopic.questions);
+    showModalNumQuestions(topic);
 }
 
-function showModalNumQuestions(category) {
-    // Customize modal subtitle with category selection
+function showModalNumQuestions(topic) {
+    // Customize modal subtitle with topic selection
     document.getElementById(
-        "category"
-    ).innerHTML = `Practice ${category} questions!`;
+        "topic"
+    ).innerHTML = `Practice ${topic} questions!`;
     document.getElementById(
         "label-num-questions"
-    ).innerHTML = `Current question bank: ${questions.length}`;
+    ).innerHTML = `Current question bank: ${selectedTopic.questions.size}`;
     // Show the modal and modal overlay
     modalNumQuestions.style.display = "block";
     modalOverlay.style.display = "block";
@@ -65,8 +88,10 @@ function checkForm(e) {
     // Get value from input field
     const input = document.getElementById("num-questions").value;
 
-    if (input <= 0 || input > questions.length) {
-        alert(`Please enter a number between 1 and ${questions.length}.`);
+    if (input <= 0 || input > selectedTopic.questions.size) {
+        alert(
+            `Please enter a number between 1 and ${selectedTopic.questions.size}.`
+        );
         document.getElementById("num-questions").value = "";
     } else {
         showQuestionCard(input);
@@ -144,7 +169,7 @@ function handleDetailsButtonClick() {
     if (btnShowAnswer.innerHTML == "Show Answer") {
         const currQuestion =
             document.getElementById("question-title").innerHTML;
-        const details = answers[currQuestion];
+        const details = selectedTopic.getAnswer(currQuestion);
         answerField.className = "show";
         answerField.innerHTML = details;
         btnShowAnswer.innerHTML = "Hide Answer";
@@ -162,10 +187,10 @@ function clearAnswerField() {
 
 function showQuestionCard(input) {
     // If all questions are to be served pre-generate all index positions
-    if (input == questions.length) {
+    if (input == selectedTopic.questions.size) {
         visitedQuestions = Array.from(
-            { length: questions.length },
-            (_, i) => i
+            { length: selectedTopic.questions.size },
+            (_, i) => i + 1
         );
     }
     maxQuestions = input;
@@ -195,8 +220,10 @@ function hideQuestionCard(e) {
 
 // This generates a random number which will be used as index to retrieve questions
 function generateNextQuestionIndex() {
-    if (maxQuestions != questions.length) {
-        const randNum = Math.floor(Math.random() * questions.length);
+    if (maxQuestions != selectedTopic.questions.size) {
+        const randNum = Math.floor(
+            Math.random() * selectedTopic.questions.size
+        );
         visitedQuestions.push(randNum);
     }
     displayQuestion();
@@ -205,7 +232,9 @@ function generateNextQuestionIndex() {
 // Display text inside the question card
 function displayQuestion() {
     // Retrieve question
-    const questionText = questions[visitedQuestions[currentQuestionIndex]];
+    const questionText = selectedTopic.getQuestion(
+        visitedQuestions[currentQuestionIndex]
+    );
     // Update the question field with the new question text
     document.getElementById("question-title").innerHTML = questionText;
     handleNextButtonDisabledState();
