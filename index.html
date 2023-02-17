@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>InterviewReady</title>
-        <link rel="stylesheet" href="style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Interview Ready</title>
+        <link rel="stylesheet" href="style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="ico" href="images/favicon/favicon.ico" />
     </head>
     <body>
         <div class="container">
             <!-- Show the menu buttons -->
-            <button class="btn" id="btn-java">JAVA</button>
-            <button class="btn" id="btn-soft-skills">Soft Skills</button>
-            <button class="btn" id="btn-mixed">Mixed</button>
+            <button class="btn btn-topic" id="btn-java">JAVA</button>
+            <button class="btn btn-topic" id="btn-soft-skills">
+                Soft Skills
+            </button>
+            <button class="btn btn-topic" id="btn-cucumber">Cucumber</button>
+            <button class="btn btn-topic" id="btn-junit-testng">
+                JUnit - TestNG
+            </button>
+            <button class="btn btn-topic" id="btn-maven">Maven</button>
+            <button class="btn btn-topic" id="btn-selenium">Selenium</button>
+            <button class="btn btn-topic" id="btn-scenario">Scenario</button>
         </div>
 
         <div class="modal-overlay" id="modal-overlay">
@@ -19,11 +28,11 @@
                 <br />
                 <button class="btn-close" id="btn-close-modal">X</button>
                 <form id="form" onsubmit="return checkForm(event)">
-                    <i><h3 id="category"></h3></i>
-                    <label for="num-questions">How many do you want to go over?</label
+                    <i><h3 id="topic"></h3></i>
+                    <label for="num-questions"
+                        >How many do you want to go over?</label
                     >
-                    <label id="label-num-questions"></label
-                    >
+                    <label id="label-num-questions"></label>
                     <input
                         type="text"
                         id="num-questions"
@@ -50,8 +59,12 @@
                 </div>
             </div>
         </div>
-        <script src="javascript/main.js"></script>
-        <script src="javascript/answers.js"></script>
-        <script src="javascript/questions.js"></script>
+        <script type="module" src="javascript/main.js"></script>
+        <script type="module" src="javascript/categories/java.js"></script>
+        <script
+            type="module"
+            src="javascript/categories/soft_skills.js"
+        ></script>
+        <script type="module" src="javascript/categories/cucumber.js"></script>
     </body>
 </html>
