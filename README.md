@@ -1,10 +1,10 @@
-# Interview Ready
+# [Interview Ready](https://alex3921.github.io/interview-ready/)
 
 Brush up those soft and technical skills and show up confident and ready to slay that upcoming interview!
 
 ## Overview
 
-Choose between java, soft skill or a mix of the two and get ready to answer some of the most common interview questions.
+Choose between a variety of topics and get ready to answer some of the most common interview questions.
 
 ## Local Installation
 
