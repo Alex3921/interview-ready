@@ -32,7 +32,7 @@ addEventListenerToBtnTopic();
 function handleTopicChoice(e) {
     const topic = e.target.innerHTML;
 
-    switch (topic) {
+    switch (topic.trim()) {
         case "JAVA":
             selectedTopic = new Java();
             break;
@@ -61,9 +61,7 @@ function handleTopicChoice(e) {
 
 function showModalNumQuestions(topic) {
     // Customize modal subtitle with topic selection
-    document.getElementById(
-        "topic"
-    ).innerHTML = `Practice ${topic} questions!`;
+    document.getElementById("topic").innerHTML = `Practice ${topic} questions!`;
     document.getElementById(
         "label-num-questions"
     ).innerHTML = `Current question bank: ${selectedTopic.questions.size}`;
