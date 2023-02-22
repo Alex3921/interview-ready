@@ -950,10 +950,3 @@ export default class SoftSkills extends DataHandler {
             `]
     ]);
 }
-
-// let q = new SoftSkills();
-// let rand = Math.floor(Math.random() * 82) + 1;
-// console.log(rand);
-// let a = q.getQuestion(rand);
-// console.log(a);
-// console.log(q.getAnswer(a));
