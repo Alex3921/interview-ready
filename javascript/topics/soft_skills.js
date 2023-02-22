@@ -33,7 +33,7 @@ export default class SoftSkills extends DataHandler {
         [25, "Do all team members attend the Parking Lot meeting?"],
         [26, "What is the Three Amigos Meeting?"],
         [27, "What is Burndown Chart?"],
-        [28, "What are the test scenario, test case and test script and what are their differences?"],
+        [28, "What are the test scenario, test case, and test script, and what are their differences?"],
         [29, "How do you write a test case? What should you consider while writing test cases?"],
         [30, "What are the benefits of writing Test Cases?"],
         [31, "What are positive and negative test cases?"],
