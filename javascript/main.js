@@ -55,7 +55,6 @@ function handleTopicChoice(e) {
             selectedTopic = new Scenario();
             break;
     }
-    console.log(selectedTopic.questions);
     showModalNumQuestions(topic);
 }
 
