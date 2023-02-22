@@ -227,7 +227,3 @@ export default class JUnitTestNG extends DataHandler {
             `]
             ]);
 }
-
-/*
-
-*/
