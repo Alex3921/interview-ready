@@ -85,7 +85,7 @@ function checkForm(e) {
     // Get value from input field
     const input = document.getElementById("num-questions").value;
 
-    if (input <= 0 || input > selectedTopic.questions.size) {
+    if (input < 1 || input > selectedTopic.questions.size) {
         alert(
             `Please enter a number between 1 and ${selectedTopic.questions.size}.`
         );
@@ -165,7 +165,7 @@ function handlePreviousButtonDisabledState() {
 function handleDetailsButtonClick() {
     if (btnShowAnswer.innerHTML == "Show Answer") {
         const currQuestion =
-            document.getElementById("question-title").innerHTML;
+        document.getElementById("question-title").innerHTML;
         const details = selectedTopic.getAnswer(currQuestion);
         answerField.className = "show";
         answerField.innerHTML = details;
@@ -220,7 +220,7 @@ function generateNextQuestionIndex() {
     if (maxQuestions != selectedTopic.questions.size) {
         const randNum = Math.floor(
             Math.random() * selectedTopic.questions.size
-        );
+        ) + 1;
         visitedQuestions.push(randNum);
     }
     displayQuestion();
