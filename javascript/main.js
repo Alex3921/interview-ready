@@ -115,6 +115,7 @@ let maxQuestions = 0;
 // this, along with currentQuestionIndex enables previous and next functionality
 let visitedQuestions = [];
 let currentQuestionIndex = 0;
+let currentQuestionToken = "";
 
 // Handle the "Next" button click:
 function handleNextButtonClick() {
@@ -164,9 +165,7 @@ function handlePreviousButtonDisabledState() {
 // Handle the "Details" button click
 function handleDetailsButtonClick() {
     if (btnShowAnswer.innerHTML == "Show Answer") {
-        const currQuestion =
-        document.getElementById("question-title").innerHTML;
-        const details = selectedTopic.getAnswer(currQuestion);
+        const details = selectedTopic.getAnswer(currentQuestionToken);
         answerField.className = "show";
         answerField.innerHTML = details;
         btnShowAnswer.innerHTML = "Hide Answer";
@@ -229,11 +228,11 @@ function generateNextQuestionIndex() {
 // Display text inside the question card
 function displayQuestion() {
     // Retrieve question
-    const questionText = selectedTopic.getQuestion(
+    currentQuestionToken = selectedTopic.getQuestion(
         visitedQuestions[currentQuestionIndex]
     );
     // Update the question field with the new question text
-    document.getElementById("question-title").innerHTML = currentQuestionIndex+1 + ". " + questionText;
+    document.getElementById("question-title").innerHTML = currentQuestionIndex+1 + ". " + currentQuestionToken;
 
     handleNextButtonDisabledState();
     handlePreviousButtonDisabledState();
