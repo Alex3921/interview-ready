@@ -77,8 +77,7 @@ export default class Maven extends DataHandler {
 
         ["What would the command mvn clean do?", `
             • This command deletes the target directory with all the build data before starting the build process.
-            • <b>mvn clean</b> aims to clean the project artifacts created by the previous Maven builds from the target
-            directories.
+            • <b>mvn clean</b> aims to clean the project artifacts created by the previous Maven builds from the target directories.
             • This is generally executed before initiating a new build process.
         `],
 
