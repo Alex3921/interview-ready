@@ -233,7 +233,8 @@ function displayQuestion() {
         visitedQuestions[currentQuestionIndex]
     );
     // Update the question field with the new question text
-    document.getElementById("question-title").innerHTML = questionText;
+    document.getElementById("question-title").innerHTML = currentQuestionIndex+1 + ". " + questionText;
+
     handleNextButtonDisabledState();
     handlePreviousButtonDisabledState();
 }
