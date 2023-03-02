@@ -168,11 +168,11 @@ function handlePreviousButtonDisabledState() {
 
 // Handle the "Details" button click
 function handleDetailsButtonClick() {
-    if (btnShowAnswer.innerHTML == "Show Answer") {
+    if (btnShowAnswer.innerHTML == "Details") {
         const details = selectedTopic.getAnswer(currentQuestionToken);
         answerField.className = "show";
         answerField.innerHTML = details;
-        btnShowAnswer.innerHTML = "Hide Answer";
+        btnShowAnswer.innerHTML = "Hide";
     } else {
         clearAnswerField();
     }
@@ -182,7 +182,7 @@ function handleDetailsButtonClick() {
 function clearAnswerField() {
     answerField.className = "";
     answerField.innerHTML = "";
-    btnShowAnswer.innerHTML = "Show Answer";
+    btnShowAnswer.innerHTML = "Details";
 }
 
 function showQuestionCard(input) {
