@@ -5,6 +5,7 @@ import JUnitTestNG from "./topics/junit_testng.js";
 import Maven from "./topics/maven.js";
 import Selenium from "./topics/selenium.js";
 import Scenario from "./topics/scenario.js";
+import SQL from "./topics/sql.js";
 
 let selectedTopic;
 
@@ -53,6 +54,9 @@ function handleTopicChoice(e) {
             break;
         case "Scenario":
             selectedTopic = new Scenario();
+            break;
+        case "SQL":
+            selectedTopic = new SQL();
             break;
     }
     showModalNumQuestions(topic);
