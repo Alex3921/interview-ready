@@ -41,13 +41,6 @@ body {
     font-size: 18px;
 }
 
-/* Style the modal button */
-
-/* Style the "OK" button hover state */
-/* .modal button:hover {
-    background-color: rgb(83, 217, 83);
-} */
-
 .modal-overlay {
     display: none; /* Hide the overlay by default */
     position: fixed; /* Stay in place */
@@ -156,10 +149,23 @@ body {
     pointer-events: none;
     background-color: #ccc;
 }
+  
+  /* Style the buttons for screens smaller than 768px */
+@media only screen and (max-width: 768px) {
+    .btn-topic {
+      display: block;
+      margin-bottom: 10px;
+      width: 75%;
+    }
 
-@media (max-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     #question-card {
-        width: 80%;
+        width: 75%;
     }
 
     #question-title {
@@ -175,14 +181,34 @@ body {
         height: 40px;
     }
 
-    .prev-next-container .btn {
-        width: 120px;
+    .btn {
+        width: 75%;
         height: 40px;
+        font-size: 18px;
     }
-}
 
-@media (max-height: 500px) {
-    #answer-field {
-        max-height: 50vh;
+    #modal-num-questions {
+        width: 75%;
     }
+    
+    #prev-next-container {
+        font-size: 60%;
+    }
+
+    #show-answer {
+        width: 90px;
+    }
+
+    #btn-next {
+        width: 90px;
+    }
+
+    #btn-prev {
+        width: 90px;
+    }
+
+    #btn-ok {
+        width: 30%;
+    }
+      
 }
