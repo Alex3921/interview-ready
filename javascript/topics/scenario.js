@@ -9,7 +9,12 @@ export default class Scenario extends DataHandler {
         [1, "Assume that you get a NoSuchElementException. What would you do to troubleshoot the issue?"],
         [2, "Assume that you get a ElementClickInterceptedException. What would you do? How would you troubleshoot the issue?"],
         [3, "Assume that you navigated to a page and loads a pop-up. However, this happens sometimes and most of the times, the pop-up does not show. How would you handle this situation?"],
-        [4, "Assume that you will need to run your test suites like Smoke and Regression against different browsers like Chrome, Firefox, Edge and more. How would you handle this situation?"]
+        [4, "Assume that you will need to run your test suites like Smoke and Regression against different browsers like Chrome, Firefox, Edge and more. How would you handle this situation?"],
+        [5, "What is an interesting bug you found lately?"],
+        [6, "What do you include in your bug ticket?"],
+        [7, "How do you handle conflicts?"],
+        [8, "Why did you apply for our company?"],
+        [9, "Where do you see yourself in 5 years/future?"],
     ])
 
     answers = new Map([
@@ -52,6 +57,46 @@ export default class Scenario extends DataHandler {
             • This is directly related to cross-browser testing and it is usually handled with your config file where all your global configurations are stored and controlled
             • So, you may tell I set my driver with a method before the execution starts and this method gets all required capabilities from my config file and able to set driver to be Chrome, Firefox, Edge, Safari, etc.
             • With that, it sets up the desired browser, environment and some other capabilities for the test execution
+        `],
+
+        ["What is an interesting bug you found lately?", `
+            <b>What is the interviewer looking for when asking the question:</b>
+            The interviewer is likely looking to gain insight into your problem-solving skills, as well as your ability to think creatively and outside the box when it comes to troubleshooting issues.
+            
+            <b>How should you structure the answer:</b>
+            When answering this question, it's important to provide a clear and concise description of the bug you found, as well as the steps you took to identify and resolve it. It's also a good idea to highlight any particularly creative or innovative solutions you came up with to address the issue.
+        `],
+
+        ["What do you include in your bug ticket?", `
+            <b>What is the interviewer looking for when asking the question:</b>
+            The interviewer is interested in understanding your attention to detail, your understanding of the bug-tracking process, and your ability to communicate technical issues effectively.
+            
+            <b>How should you structure the answer:</b>
+            Start by explaining the importance of bug tracking and the role of bug tickets. Then, describe the key components of a bug ticket, including the title, description, steps to reproduce the issue, and any relevant attachments or screenshots. Finally, discuss how you ensure that your bug tickets are clear, concise, and actionable.
+        `],
+
+        ["How do you handle conflicts?", `
+            <b>What is the interviewer looking for when asking the question:</b>
+            The interviewer is interested in understanding your conflict resolution skills, how you deal with difficult situations, and your ability to maintain positive relationships with your colleagues.
+        
+            <b>How should you structure the answer:</b>
+            Start by explaining your approach to conflict resolution, highlighting your communication and problem-solving skills. Then, provide an example of a conflict you faced, including the steps you took to resolve it and the situation's outcome. Finally, discuss what you learned from the experience and how you have applied it to future situations.
+        `],
+
+        ["Why did you apply for our company?", `
+            <b>What is the interviewer looking for when asking the question:</b>
+            The interviewer is looking to gain insight into your motivation for applying to their company, and what specific factors about the company and the position appealed to you.
+
+            <b>How should you structure the answer:</b>
+            Your answer should provide specific reasons why you applied to this particular company, rather than a generic response that could apply to any company. You should highlight factors such as the company's mission, culture, industry reputation, and any other unique qualities that drew you to the position.
+        `],
+
+        ["Where do you see yourself in 5 years/future?", `
+            <b>What is the interviewer looking for when asking the question:</b>
+            The interviewer wants to understand your long-term career goals and aspirations and how they align with the company's objectives. They want to know if you have a clear vision for your future and if you have thought about how this position will help you achieve your goals.
+            
+            <b>How should you structure the answer:</b>
+            You should provide a realistic and thoughtful response that aligns with your career aspirations and the company's goals. You should demonstrate that you have done some research on the company and the industry and that you have a clear idea of how this position can help you achieve your long-term goals.
         `]
     ])
 }
