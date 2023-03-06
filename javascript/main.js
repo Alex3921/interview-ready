@@ -186,13 +186,6 @@ function clearAnswerField() {
 }
 
 function showQuestionCard(input) {
-    // If all questions are to be served pre-generate all index positions
-    if (input == selectedTopic.questions.size) {
-        visitedQuestions = Array.from(
-            { length: selectedTopic.questions.size },
-            (_, i) => i + 1
-        );
-    }
     maxQuestions = input;
     generateNextQuestionIndex();
 
@@ -220,12 +213,12 @@ function hideQuestionCard(e) {
 
 // This generates a random number which will be used as index to retrieve questions
 function generateNextQuestionIndex() {
-    if (maxQuestions != selectedTopic.questions.size) {
-        const randNum = Math.floor(
-            Math.random() * selectedTopic.questions.size
-        ) + 1;
-        visitedQuestions.push(randNum);
-    }
+    let randNum;
+    do {
+        randNum = Math.floor(Math.random() * selectedTopic.questions.size) + 1;
+    } while (visitedQuestions.findIndex((i) => i === randNum) != -1);
+
+    visitedQuestions.push(randNum);
     displayQuestion();
 }
 
@@ -236,7 +229,8 @@ function displayQuestion() {
         visitedQuestions[currentQuestionIndex]
     );
     // Update the question field with the new question text
-    document.getElementById("question-title").innerHTML = currentQuestionIndex+1 + ". " + currentQuestionToken;
+    document.getElementById("question-title").innerHTML =
+        currentQuestionIndex + 1 + ". " + currentQuestionToken;
 
     handleNextButtonDisabledState();
     handlePreviousButtonDisabledState();
