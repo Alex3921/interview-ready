@@ -1,4 +1,4 @@
-# [Interview Ready](https://alex3921.github.io/interview-ready/)
+# [Interview Ready](https://alex-boncut.github.io/interview-ready/)
 
 Brush up those soft and technical skills and show up confident and ready to slay that upcoming interview!
 
