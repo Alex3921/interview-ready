@@ -25,7 +25,7 @@ export default class Scenario extends DataHandler {
         [17, "Tell me about a regular day of your work, what do you do?"],
         [18, "What is the interesting bug you found lately?"],
         [19, "What questions do you have for me?"],
-        [20, "Can you tell me about your projects?"],
+        [20, "Can you tell me about your project."],
         [21, "Can you tell me about your Smoke and Regression Suites? How many tests? How long they run?"],
         [22, "How do you decide if a test case is a Smoke or Regression test case?"],
         [23, "How do you read test data in your framework?"],
@@ -33,7 +33,9 @@ export default class Scenario extends DataHandler {
         [25, "How do you manage different sets of test data for different environments?"],
         [26, "Can you tell me a tough automation problem you faced in the past and how you solved it?"],
         [27, "Which side of the automation do you feel comfortable UI or API?"],
-        [28, "How did you maintain your test scripts?"]
+        [28, "How did you maintain your test scripts?"],
+        [29, "Tell me about yourself."],
+        [30, "Tell me about your framework."]
     ])
 
     answers = new Map([
@@ -199,7 +201,7 @@ export default class Scenario extends DataHandler {
             You should ask some relevant and specific questions that show your enthusiasm and knowledge about the company and the role. You should also avoid asking questions that are too personal, trivial, or negative. You should also avoid asking questions that can be easily found on the company website or job description.
         `],
 
-        ["Can you tell me about your projects?", `
+        ["Can you tell me about your project.", `
             <b>What is the interviewer looking for:</b> 
             The interviewer wants to know what kind of software testing projects you have worked on or are working on and how you contributed to them as a SDET. They also want to know how you applied your skills and knowledge in software testing and automation, what challenges or achievements you had, and what results or outcomes you delivered.
             
@@ -402,5 +404,21 @@ export default class Scenario extends DataHandler {
 
                 o I use a reporting tool such as Extent Reports or Allure Reports to generate detailed and interactive reports for each test execution. These reports contain information such as test name; status; duration; steps; screenshots; logs; etc. These reports help me analyze and troubleshoot any failures or errors in my test scripts.
         `],
+
+        ["Tell me about yourself.", `
+            What is the interviewer looking for with that question:
+            The interviewer is looking to learn more about you and your background. This question is often used as an icebreaker to get the conversation started. The interviewer wants to know about your experience, education, skills, and achievements.
+            
+            How should I structure my answer:
+            You should structure your answer to highlight your relevant experiences, skills, and accomplishments. Keeping your response concise and focused on your professional background is essential. You can start by briefly introducing yourself, then mention your relevant education and work experience, and conclude by talking about your relevant skills and achievements to the position. Remember to keep your response professional and avoid talking about the personal information that is not relevant to the position.
+        `],
+
+        ["Tell me about your framework.", `
+            What is the interviewer looking for with that question:
+            The interviewer wants to understand the automation framework you used in your previous projects and your level of expertise with it.
+            
+            How should I structure my answer:
+            Begin by explaining the automation framework that you have used in your previous projects. Then, describe the advantages of using the framework, any challenges you faced while implementing it, and the level of expertise you have with the framework. Finally, give an example of a successful implementation of the framework.
+        `]
     ])
 }
