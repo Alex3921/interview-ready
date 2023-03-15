@@ -55,7 +55,7 @@ export default class Java extends DataHandler {
         [47, "What is encapsulation? Why we need it? How we achieve it?"],
         [48, "What is inheritance? Why we need it? How it can be achieved? What are some rules for inheritance?"],
         [49, "What is abstraction? How it can be achieved? Talk about Abstract and Interface classes?"],
-        [50, "WHY WE NEED ABSTRACTION - ABSTRACT CLASSES AND INTERFACES?"],
+        [50, "Why we need abstraction - Abstract Classes and Interfaces?"],
         [51, "What is polymorphism? When we need polymorphism?"],
         [52, "What are the similarities and differences between Abstract classes and Interfaces?"],
         [53, "What is Dynamic Polymorphism vs Static Polymorphism in Java?"],
@@ -638,7 +638,7 @@ export default class Java extends DataHandler {
         • Interfaces are usually named with <able> keyword. Rollable, Reliable, Scalable
     `],
 
-    ["WHY WE NEED ABSTRACTION - ABSTRACT CLASSES AND INTERFACES?", `
+    ["Why we need abstraction - Abstract Classes and Interfaces?", `
     • Abstraction in Java can be achieved by abstract classes and interfaces
     • Abstract classes and interfaces are created to be used by many similar subclasses and provides some common fields and methods to those subclasses and increases code reusability
     • A class can extend to only one class in Java (or one abstract class)
