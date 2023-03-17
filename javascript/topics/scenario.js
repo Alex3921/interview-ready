@@ -39,7 +39,6 @@ export default class Scenario extends DataHandler {
     ])
 
     answers = new Map([
-
         ["Assume that you get a NoSuchElementException. What would you do to troubleshoot the issue?", `
         • This is a common issue that Automation Testers face especially when application is under development and not live yet
         • <b>NoSuchElementException</b> occurs when WebDriver is unable to find and locate an element
@@ -406,18 +405,18 @@ export default class Scenario extends DataHandler {
         `],
 
         ["Tell me about yourself.", `
-            What is the interviewer looking for with that question:
+            <b>What is the interviewer looking for:</b>
             The interviewer is looking to learn more about you and your background. This question is often used as an icebreaker to get the conversation started. The interviewer wants to know about your experience, education, skills, and achievements.
             
-            How should I structure my answer:
+            <b>How should I structure my answer:</b>
             You should structure your answer to highlight your relevant experiences, skills, and accomplishments. Keeping your response concise and focused on your professional background is essential. You can start by briefly introducing yourself, then mention your relevant education and work experience, and conclude by talking about your relevant skills and achievements to the position. Remember to keep your response professional and avoid talking about the personal information that is not relevant to the position.
         `],
 
         ["Tell me about your framework.", `
-            What is the interviewer looking for with that question:
+            <b>What is the interviewer looking for:</b>
             The interviewer wants to understand the automation framework you used in your previous projects and your level of expertise with it.
             
-            How should I structure my answer:
+            <b>How should I structure my answer:</b>
             Begin by explaining the automation framework that you have used in your previous projects. Then, describe the advantages of using the framework, any challenges you faced while implementing it, and the level of expertise you have with the framework. Finally, give an example of a successful implementation of the framework.
         `]
     ])
