@@ -231,5 +231,6 @@ export default class Cucumber extends DataHandler {
                 public class Runner {
                 }
             </i>
-        `]]);
+        `]
+    ]);
 }
