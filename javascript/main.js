@@ -6,6 +6,7 @@ import Maven from "./topics/maven.js";
 import Selenium from "./topics/selenium.js";
 import Scenario from "./topics/scenario.js";
 import SQL from "./topics/sql.js";
+import Mock from "./topics/mock.js";
 
 let selectedTopic;
 
@@ -31,9 +32,9 @@ addEventListenerToBtnTopic();
 
 // This handles topic choice and retrieves the correct data
 function handleTopicChoice(e) {
-    const topic = e.target.innerHTML;
+    const topic = e.target.innerHTML.trim();
 
-    switch (topic.trim()) {
+    switch (topic) {
         case "JAVA":
             selectedTopic = new Java();
             break;
@@ -58,8 +59,16 @@ function handleTopicChoice(e) {
         case "SQL":
             selectedTopic = new SQL();
             break;
+        case "Mock":
+            selectedTopic = new Mock();
+            break;
     }
-    showModalNumQuestions(topic);
+
+    if (topic === "Mock") {
+        showQuestionCard(selectedTopic.questions.size);
+    } else {
+        showModalNumQuestions(topic);
+    }
 }
 
 function showModalNumQuestions(topic) {
@@ -214,9 +223,14 @@ function hideQuestionCard(e) {
 // This generates a random number which will be used as index to retrieve questions
 function generateNextQuestionIndex() {
     let randNum;
-    do {
-        randNum = Math.floor(Math.random() * selectedTopic.questions.size) + 1;
-    } while (visitedQuestions.findIndex((i) => i === randNum) != -1);
+    if (selectedTopic.questions.size !== 35) {
+        do {
+            randNum =
+                Math.floor(Math.random() * selectedTopic.questions.size) + 1;
+        } while (visitedQuestions.findIndex((i) => i === randNum) != -1);
+    } else {
+        randNum = visitedQuestions.length + 1;
+    }
 
     visitedQuestions.push(randNum);
     displayQuestion();
