@@ -86,19 +86,22 @@ function generateAlgorithmChecklist() {
     for (let i = 0; i < patterns.dataList.length; i++) {
         const pattern = patterns.dataList[i];
 
-        // Create a subtitle element for the pattern
         const subtitle = document.createElement('div');
         subtitle.classList.add('subtitle');
-        subtitle.textContent = i+1 + ". "+ pattern.pattern;
+        subtitle.textContent = i + 1 + ". " + pattern.pattern;
         checklistContainer.appendChild(subtitle);
 
-        // Create list items for the questions under each pattern
+        const patternList = document.createElement('ul');
+
         pattern.questions.forEach((question, index) => {
             const listItem = document.createElement('li');
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.name = question.name;
             checkbox.dataset.index = i + '-' + index;
+            checkbox.title = question.name;
+            checkbox.placeholder = question.name;
+
 
             listItem.appendChild(checkbox);
 
@@ -111,8 +114,10 @@ function generateAlgorithmChecklist() {
                 checkbox.click();
             });
 
-            checklistContainer.appendChild(listItem);
+            patternList.appendChild(listItem);
         });
+
+        checklistContainer.appendChild(patternList);
     }
 
     const checklist = document.getElementById('algorithm-list');
