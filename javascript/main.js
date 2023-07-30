@@ -7,6 +7,8 @@ import Selenium from "./topics/selenium.js";
 import Scenario from "./topics/scenario.js";
 import SQL from "./topics/sql.js";
 import Mock from "./topics/mock.js";
+import Algorithms from "./topics/pattern.js";
+import Pattern from "./topics/pattern.js";
 
 let selectedTopic;
 
@@ -19,6 +21,11 @@ const btnConfirmNumQuestions = document.getElementById("btn-ok");
 const modalNumQuestions = document.getElementById("modal-num-questions");
 const modalOverlay = document.getElementById("modal-overlay");
 
+if (window.location.pathname.endsWith("algo-pattern-list.html")) {
+    generateAlgorithmChecklist();
+    loadAlgorithmChecklistState();
+}
+
 // Handle menu button click events
 btnCloseModal.addEventListener("click", hideModalNumQuestions);
 btnConfirmNumQuestions.addEventListener("click", checkForm);
@@ -30,10 +37,8 @@ function addEventListenerToBtnTopic() {
 }
 addEventListenerToBtnTopic();
 
-// This handles topic choice and retrieves the correct data
 function handleTopicChoice(e) {
     const topic = e.target.innerHTML.trim();
-
     switch (topic) {
         case "JAVA":
             selectedTopic = new Java();
@@ -62,12 +67,83 @@ function handleTopicChoice(e) {
         case "Mock":
             selectedTopic = new Mock();
             break;
+        case "Algo Patterns":
+            window.open('algo-pattern-list.html', '_blank');
+            break;
     }
 
     if (topic === "Mock") {
         showQuestionCard(selectedTopic.questions.size);
     } else {
         showModalNumQuestions(topic);
+    }
+}
+
+function generateAlgorithmChecklist() {
+    const checklistContainer = document.getElementById("algorithm-list");
+    const patterns = new Pattern();
+
+    for (let i = 0; i < patterns.dataList.length; i++) {
+        const pattern = patterns.dataList[i];
+
+        // Create a subtitle element for the pattern
+        const subtitle = document.createElement('div');
+        subtitle.classList.add('subtitle');
+        subtitle.textContent = i+1 + ". "+ pattern.pattern;
+        checklistContainer.appendChild(subtitle);
+
+        // Create list items for the questions under each pattern
+        pattern.questions.forEach((question, index) => {
+            const listItem = document.createElement('li');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = question.name;
+            checkbox.dataset.index = i + '-' + index;
+
+            listItem.appendChild(checkbox);
+
+            const label = document.createElement('label');
+            label.textContent = question.name;
+            label.htmlFor = checkbox.dataset.index;
+            listItem.appendChild(label);
+
+            label.addEventListener('click', () => {
+                checkbox.click();
+            });
+
+            checklistContainer.appendChild(listItem);
+        });
+    }
+
+    const checklist = document.getElementById('algorithm-list');
+    checklist.addEventListener('change', saveAlgorithmChecklistState);
+}
+
+// Function to save the algo checklist state to localStorage
+function saveAlgorithmChecklistState() {
+    const checklist = document.getElementById('algorithm-list');
+    const checkboxes = checklist.querySelectorAll('input[type="checkbox"]');
+    
+    const selectedAlgorithms = [];
+    checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+            selectedAlgorithms.push(checkbox.getAttribute('data-index'));
+        }
+    });
+    
+    localStorage.setItem('selectedAlgorithms', JSON.stringify(selectedAlgorithms));
+}
+
+// Function to load the algo checklist state from localStorage
+function loadAlgorithmChecklistState() {
+    const selectedAlgorithms = JSON.parse(localStorage.getItem('selectedAlgorithms'));
+    if (selectedAlgorithms) {
+        const checklist = document.getElementById('algorithm-list');
+        const checkboxes = checklist.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach((checkbox) => {
+            const checkboxIndex = checkbox.getAttribute('data-index');
+            checkbox.checked = selectedAlgorithms.includes(checkboxIndex);
+        });
     }
 }
 
