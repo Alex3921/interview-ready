@@ -8,6 +8,6 @@
     "license": "ISC",
     "description": "Practice java and soft skills interview questions.",
     "dependencies": {
-        "express": "^4.18.2"
+        "express": "^4.19.2"
     }
 }
